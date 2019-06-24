@@ -1,0 +1,39 @@
+
+<section class="two-way-binding">
+    <article>
+      <h3>Two-way data binding</h3>
+      <div>
+  
+        <input type="text"
+          [value]="nome" associaçao de propriedade
+          (input)="nome = $event.target.value" associaçao de evento
+        />
+  
+        <input type="text"
+          [ngModel]="nome"
+          (ngModelChange)="nome = $event" 
+        />
+  
+        <input type="text" [(ngModel)]="nome"/> as duas associaçoes
+        
+  
+        <p>Voce digitou: {{ nome }}</p>
+  
+      </div>
+  
+      <div>
+  
+        <p>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade</p>
+  
+        <input type="text" [(ngModel)]="pessoa.nome"/>
+        <input type="text" [(ngModel)]="pessoa.idade"/>
+  
+        <p style="color: red">O ngModel é uma diretiva do angular que pertence ao FormsModule</p>
+          <p>para fazer associação de propriedade é [] <br>
+          para fazer associação de evento é ()<br>
+          e para fazer associção dos dois tipos ao mesmo tempo [()]
+        </p>
+      </div>
+    </article>
+  
+  </section>

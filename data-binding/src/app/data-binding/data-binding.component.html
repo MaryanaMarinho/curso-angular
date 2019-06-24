@@ -1,6 +1,6 @@
-<section class="property-binding">
+<!-- <section class="property-binding">
 
-  <!-- <article>
+   <article>
     <h3>Interpolation / Interpolação</h3>
     <p>String renderizada com interpolação: {{ url }}</p>
     <p>Resultao de 1 + 1 é: {{ 1 + 1 }}</p>
@@ -13,10 +13,10 @@
     <img src="{{ urlImagem }}"> 
     <img [src]="urlImagem">
     <img bind-src="urlImagem">
-  </article> -->
+  </article> 
 
 
-  <!-- <article>
+   <article>
     <h3>Class e Style Bindign</h3>
     <div>
       Selecione uma classe:
@@ -54,12 +54,12 @@
         Esse texto somente aparecera em caso de erro.
       </div>
     </div>
-  </article> -->
+  </article> 
 
-  <article>
+   <article>
     <h3>Event binding</h3>
     <div>
-       <!-- escutando o evento de clicar o botao -->
+       -- escutando o evento de clicar o botao --
        <button (click)="botaoClicado()"
       class="btn btn-primary"> 
         Me clique!
@@ -77,12 +77,14 @@
         <br><br>
 
         <span
-        (mouseover)="onMouseOverOut()"
+        (mouseover)="onMouseOverOut()" associaçao de evento
         (mouseout)="onMouseOverOut()"
-        [class.highlilght]="isMouseOver">
+        [class.highlilght]="isMouseOver"> associaçao de propriedade
         Passe o mause sobre mim.
         </span>
     </div>
-  </article>
+  </article> 
 
-</section>
+</section> -->
+
+<app-meu-form></app-meu-form>
