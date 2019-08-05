@@ -2,7 +2,7 @@
 
 Os Pipes serve para formatar dados.
 
-<p>Título: {{ livro.titulo | uppercase | lowercase }}</p>
+<p>Título: {{ livro.titulo | uppercase | lowercase | camelCase }}</p>
 <p>Estrelas: {{ livro.rating | number:'1.1-1' }}</p>
 <p>Paginas: {{ livro.numeroPaginas | number }}</p>
 <p>Preço: {{ livro.preco | currency:'BRL' }}</p>
