@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { LogService } from '../shared/log.service';
 
 @Injectable()
 export class CursosService {
@@ -12,16 +13,19 @@ export class CursosService {
 
   private cursos: string[] = ['Angular2', 'Java', 'Phonegap'];
 
-  constructor() {
+  constructor(private logService: LogService) {
     console.log('CursoService');
   }
 
 
   getCursos() {
-    return this.cursos
+    this.logService.consoleLog('Obtendo lista de cursos');
+    return this.cursos;
   }
 
   addCurso(curso: string) {
+
+    this.logService.consoleLog(`Criando um novo curso ${curso}`); // é a mesma coisa que ('Criando um novo curso' + curso);
     this.cursos.push(curso);
 
     // sempre que essa funcao for chamada ela vai emitir uma informacao
