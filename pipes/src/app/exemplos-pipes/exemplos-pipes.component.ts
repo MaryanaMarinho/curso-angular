@@ -22,6 +22,26 @@ export class ExemplosPipesComponent implements OnInit {
 
   addCurso(valor) {
     this.livros.push(valor);
+    console.log(this.livros);
+
+  }
+
+  // maneira correta de fazer filtros é por funcao
+  // nao faça filtro ou order by atravez de pipes
+  obterCursos() {
+
+    if (this.livros.length === 0 || this.filtro === undefined
+        || this.filtro.trim() === '') {
+      return this.livros;
+    }
+
+    return this.livros.filter((v) =>{
+      if (v.toLowerCase().indexOf(this.filtro.toLowerCase()) >=0) {
+        return true;
+      }
+
+      return false;
+    });
   }
 
   constructor() { }
