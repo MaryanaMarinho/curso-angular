@@ -14,12 +14,13 @@
     <p> Entre com o id do curso</p>
     <input #idCurso>
 
-    <br><br><br>
+    <router-outlet></router-outlet>
+
+    <br><br><br><br><br><br><br><br><br>
 
     O atributo acima [routerLink]="['curso', idCurso.value]" <br>
     ta pegando o valor do input com o id "idCurso"
     <br><br><br>
     O componete da rota é renderizado dentro dessa tag router-outlet
-    <router-outlet></router-outlet>
   </div>
 
