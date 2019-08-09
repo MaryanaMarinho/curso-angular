@@ -9,6 +9,8 @@ import { CursoDetalheComponent } from './cursos/curso-detalhe/curso-detalhe.comp
 import { CursoNaoEncontradoComponent } from './cursos/curso-nao-encontrado/curso-nao-encontrado.component'; */
 
 const appRoutes: Routes = [
+  { path: 'cursos', loadChildren: './cursos/cursos.module#CursosModule' }, // lazy loading
+  { path: 'alunos', loadChildren: './alunos/alunos.module#AlunosModule' }, // lazy loading
   //{ path: 'cursos', component: CursosComponent },
   //{ path: 'curso/:id', component: CursoDetalheComponent },
   { path: 'login', component: LoginComponent },
