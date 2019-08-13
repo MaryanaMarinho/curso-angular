@@ -3,9 +3,12 @@ import { AlunoDetalheComponent } from './aluno-detalhe/aluno-detalhe.component';
 import { AlunosComponent } from './alunos.component';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { AlunosGuard } from '../guards/alunos.guard';
 
 const alunsoRoutes = [
-  {path: '', component: AlunosComponent, children : [
+  {path: '', component: AlunosComponent,
+  canActivateChild: [AlunosGuard],
+  children : [
     {path: 'novo', component: AlunoFormComponent},
     {path: ':id', component: AlunoDetalheComponent},
     {path: ':id/editar', component: AlunoFormComponent}

@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CursosGuard } from './guards/cursos.guard';
+import { AlunosGuard } from './guards/alunos.guard';
 /* import { CursosComponent } from './cursos/cursos.component';
 import { CursoDetalheComponent } from './cursos/curso-detalhe/curso-detalhe.component';
 import { CursoNaoEncontradoComponent } from './cursos/curso-nao-encontrado/curso-nao-encontrado.component'; */
@@ -12,13 +14,15 @@ const appRoutes: Routes = [
   {
     path: 'cursos',
     loadChildren: './cursos/cursos.module#CursosModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    canActivateChild: [CursosGuard]
   }, // lazy loading
 
   {
     path: 'alunos',
     loadChildren: './alunos/alunos.module#AlunosModule',
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard]//,
+    //canActivateChild: [AlunosGuard]
   }, // lazy loading
 
   //{ path: 'cursos', component: CursosComponent },
