@@ -49,7 +49,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)], // forRoot apenas no modulo de rotas raiz da aplicacao
+  imports: [RouterModule.forRoot(appRoutes, {useHash: true})], // forRoot apenas no modulo de rotas raiz da aplicacao
   exports: [RouterModule]
 })
 
