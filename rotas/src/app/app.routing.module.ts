@@ -15,14 +15,16 @@ const appRoutes: Routes = [
     path: 'cursos',
     loadChildren: './cursos/cursos.module#CursosModule',
     canActivate: [AuthGuard],
-    canActivateChild: [CursosGuard]
+    canActivateChild: [CursosGuard],
+    canLoad: [AuthGuard]
   }, // lazy loading
 
   {
     path: 'alunos',
     loadChildren: './alunos/alunos.module#AlunosModule',
-    canActivate: [AuthGuard]//,
+    canActivate: [AuthGuard],
     //canActivateChild: [AlunosGuard]
+    canLoad: [AuthGuard]
   }, // lazy loading
 
   //{ path: 'cursos', component: CursosComponent },
