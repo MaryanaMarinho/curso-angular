@@ -5,14 +5,19 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AlunosGuard } from '../guards/alunos.guard';
 import { AlunosDeactivateGuard } from '../guards/alunos-deactivate.guard';
+import { AlunoDetalheResolver } from './guards/aluno-detalhe.resolver';
 
 const alunsoRoutes = [
   {path: '', component: AlunosComponent,
   canActivateChild: [AlunosGuard],
   children : [
     {path: 'novo', component: AlunoFormComponent},
-    {path: ':id', component: AlunoDetalheComponent},
-    {path: ':id/editar', component: AlunoFormComponent, canDeactivate: [AlunosDeactivateGuard]}
+    {path: ':id', component: AlunoDetalheComponent,
+      resolve: { aluno: AlunoDetalheResolver }
+    },
+    {path: ':id/editar', component: AlunoFormComponent,
+      canDeactivate: [AlunosDeactivateGuard]
+    }
 
   ]}
 
