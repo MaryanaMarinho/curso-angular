@@ -15,8 +15,8 @@ export class TemplateFormComponent implements OnInit {
   onSubmit(form) {
 
     // esses dois consoles fazem a mesma coisa
-    console.log(form.value);
-    console.log(this.usuario);
+    console.log(form);
+    // console.log(this.usuario);
 
   }
 
