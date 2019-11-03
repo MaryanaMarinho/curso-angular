@@ -14,15 +14,16 @@ export class TemplateFormComponent implements OnInit {
     email: null
   }
 
-  onSubmit(form) {
+  onSubmit(formulario) {
 
     // esses dois consoles fazem a mesma coisa
-    console.log(form);
+    console.log(formulario);
     // console.log(this.usuario);
 
-    this.http.post('https://httpbin.org/post', JSON.stringify(form.value))
+    this.http.post('https://httpbin.org/post', JSON.stringify(formulario.value))
     .subscribe(dados => {
       console.log(dados);
+      formulario.form.reset();
     });
 
   }
