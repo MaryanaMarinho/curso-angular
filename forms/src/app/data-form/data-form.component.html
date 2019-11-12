@@ -37,7 +37,7 @@
 
             <label for="cep" class="control-label">CEP</label>
             <input type="text" class="form-control" id="cep" [ngClass]="aplicaCssErro('endereco.cep')"
-            formControlName="cep">
+            formControlName="cep" (blur)="consultaCEP()">
 
             <div *ngIf="verificaEmailInvalido()" class="alert alert-danger" role="alert">
               CEP é obrigatorio
