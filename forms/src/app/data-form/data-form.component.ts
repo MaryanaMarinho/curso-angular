@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data-form',
@@ -23,8 +23,8 @@ export class DataFormComponent implements OnInit {
     }); */
 
     this.formulario = this.formBuilder.group({
-      nome: [null],
-      email: [null]
+      nome: [null, Validators.required], // [Validators.required, Validators.minLength(3), Validators.maxLength(20)]
+      email: [null, [Validators.required, Validators.email]]
     });
   }
 
