@@ -30,7 +30,7 @@
       </div>
     </div>
 
-      <div formGroupName="endereco">
+      <div formGroupName="endereco" class="col-sm-12">
         <div class="form-row">
 
           <div class="form-group col-3" [ngClass]="aplicaCssErro('endereco.cep')">
@@ -69,11 +69,11 @@
 
         <div class="form-group" [ngClass]="aplicaCssErro('endereco.rua')">
 
-          <div class="col-sm-12">
+          <div >
             <label for="rua">Rua</label>
           </div>
 
-          <div class="col-sm-12">
+          <div >
             <input type="text" class="form-control" name="rua" id="rua" [ngClass]="aplicaCssErro('endereco.rua')"
             formControlName="rua">
 

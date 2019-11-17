@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data-form',
@@ -41,15 +41,33 @@ export class DataFormComponent implements OnInit {
   onSubmit() {
     console.log(this.formulario.value);
 
-    this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
-      .subscribe(dados => {
-        console.log(dados);
+    if (this.formulario.valid) {
 
-        //reseta o form
-        //this.formulario.reset();
-        this.resetar();
-      },
-      (error: any) => alert('erro'));
+      this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
+        .subscribe(dados => {
+          console.log(dados);
+
+          //reseta o form
+          //this.formulario.reset();
+          this.resetar();
+        },
+        (error: any) => alert('erro'));
+    }
+    else {
+      console.log('Formulario invalido');
+      this.verificaValidacoesForm(this.formulario);
+    }
+  }
+
+  verificaValidacoesForm(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(campo => {
+      console.log(campo);
+      const controle = formGroup.get(campo);
+      controle.markAsDirty();
+      if (controle instanceof FormGroup) {
+        this.verificaValidacoesForm(controle);
+      }
+    });
   }
 
   resetar() {
@@ -58,7 +76,7 @@ export class DataFormComponent implements OnInit {
 
   verificaValidTouched(campo: string) {
     return !this.formulario.get(campo).valid &&
-            this.formulario.get(campo).touched;
+            (this.formulario.get(campo).touched || this.formulario.get(campo).dirty);
   }
 
   verificaEmailInvalido() {
