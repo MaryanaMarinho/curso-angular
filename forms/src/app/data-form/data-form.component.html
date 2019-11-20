@@ -172,17 +172,36 @@
     </div>
 
     <div class="form-group" class="col-sm-12">
+      <div class="form-row">
 
-      <div class="form-group">
-        <div class="col-md-3" [ngClass]="aplicaCssErro('termos')">
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="Check" formControlName="termos" [ngClass]="aplicaCssErro('termos')">
-            <label class="custom-control-label" for="Check">Aceito os termos.</label>
-          </div>
-          <div *ngIf="!this.formulario.get('termos').valid" class="alert alert-danger" role="alert">
+        <div class="form-group col-4">
+          <div [ngClass]="aplicaCssErro('termos')">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="Check" formControlName="termos" [ngClass]="aplicaCssErro('termos')">
+              <label class="custom-control-label" for="Check">Aceito os termos.</label>
+            </div>
+            <div *ngIf="!this.formulario.get('termos').valid" class="alert alert-danger" role="alert">
               Por favor, aceite os termos.
             </div>
+          </div>
+
         </div>
+
+        <div class="form-group col-4">
+            <div [ngClass]="aplicaCssErro('frameworks')">
+              <label for="frameworks">Frameworks</label>
+              <div id="frameworks">
+                <div class="custom-control custom-checkbox custom-control-inline col-sm-4"
+                formArrayName="frameworks" *ngFor="let item of formulario.get('frameworks').controls; let i = index">
+                  <input type="checkbox" class="custom-control-input" id="{{frameworks[i]}}"
+                  [formControlName]="i" [ngClass]="aplicaCssErro('frameworks')">
+                  <label class="custom-control-label" for="{{frameworks[i]}}" >{{frameworks[i]}}</label>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
       </div>
     </div>
 

@@ -24,10 +24,10 @@ export class DropdownService {
 
   getTecnologias() {
     return [
-      { nome: 'react', desc: 'ReactJs'},
+      { nome: 'java', desc: 'Java'},
       { nome: 'javascript', desc: 'JavaScript'},
-      { nome: 'angular', desc: 'Angular'},
-      { nome: 'vue', desc: 'VueJs'}
+      { nome: 'php', desc: 'PHP'},
+      { nome: 'node', desc: 'NodeJs'}
     ];
   }
 
