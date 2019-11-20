@@ -30,4 +30,11 @@ export class DropdownService {
       { nome: 'vue', desc: 'VueJs'}
     ];
   }
+
+  getNewsLetter() {
+    return [
+      { valor: 's', desc: 'Sim'},
+      { valor: 'n', desc: 'Não'}
+    ];
+  }
 }
