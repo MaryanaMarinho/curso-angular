@@ -171,6 +171,21 @@
       </div>
     </div>
 
+    <div class="form-group" class="col-sm-12">
+
+      <div class="form-group">
+        <div class="col-md-3" [ngClass]="aplicaCssErro('termos')">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="Check" formControlName="termos" [ngClass]="aplicaCssErro('termos')">
+            <label class="custom-control-label" for="Check">Aceito os termos.</label>
+          </div>
+          <div *ngIf="!this.formulario.get('termos').valid" class="alert alert-danger" role="alert">
+              Por favor, aceite os termos.
+            </div>
+        </div>
+      </div>
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
     <button class="btn btn-default" (click)="resetar()">Cancelar</button>
     <button class="btn btn-info" (click)="setarCargo()">Cargo</button>
