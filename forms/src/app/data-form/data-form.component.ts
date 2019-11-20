@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { ConsultaCepService } from './../shared/services/consulta-cep.service';
 import { EstadoBr } from './../shared/models/estado-br';
 import { DropdownService } from './../shared/services/dropdown.service';
@@ -13,7 +14,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class DataFormComponent implements OnInit {
 
   formulario: FormGroup;
-  estados: EstadoBr[];
+  // estados: EstadoBr[];
+  estados: Observable<EstadoBr[]>;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,11 +25,16 @@ export class DataFormComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dropdownService.getEstadosBr().subscribe(dados => {
+    // solução utilizando o | async no html, dar preferencia a essa implementação sempre que possivel
+    // na hora de utilizar informações que estao vindo de Observables
+    // o pipe async automaticamente faz o subscribe e qd ele é destruido tbm faz o unsubscribe
+    this.estados = this.dropdownService.getEstadosBr();
+
+    /* this.dropdownService.getEstadosBr().subscribe(dados => {
       this.estados = dados;
       console.log(dados);
 
-    })
+    }); */
 
     /* this.formulario = new FormGroup({
       nome: new FormControl(null),
